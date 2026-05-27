@@ -3789,7 +3789,7 @@
       "SecondaryAttribute": "Record Heat Wave Strikes Region Temperatures soared past 105°F this week, shattering decades-old...",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}heatwave_causal.png\" alt=\"News article: heatwave causal\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/heatwave_causal.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_heatwave_causal",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -3821,7 +3821,7 @@
       "SecondaryAttribute": "treatment_article_heatwave_contextual",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}heatwave_contextual.png\" alt=\"News article: heatwave contextual\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/heatwave_contextual.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_heatwave_contextual",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -3848,7 +3848,7 @@
       "SecondaryAttribute": "treatment_article_heatwave_no_mention",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}heatwave_no_mention.png\" alt=\"News article: heatwave no mention\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/heatwave_no_mention.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_heatwave_no_mention",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -3875,7 +3875,7 @@
       "SecondaryAttribute": "treatment_article_flood_causal",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}flood_causal.png\" alt=\"News article: flood causal\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/flood_causal.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_flood_causal",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -3902,7 +3902,7 @@
       "SecondaryAttribute": "treatment_article_flood_contextual",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}flood_contextual.png\" alt=\"News article: flood contextual\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/flood_contextual.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_flood_contextual",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -3955,7 +3955,7 @@
       "SecondaryAttribute": "treatment_article_flood_no_mention",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}flood_no_mention.png\" alt=\"News article: flood no mention\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/flood_no_mention.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_flood_no_mention",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -3982,7 +3982,7 @@
       "SecondaryAttribute": "treatment_article_hurricane_causal",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}hurricane_causal.png\" alt=\"News article: hurricane causal\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/hurricane_causal.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_hurricane_causal",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4009,7 +4009,7 @@
       "SecondaryAttribute": "Powerful Hurricane Devastates Coastal Region A powerful hurricane slammed into the coast with 140...",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}hurricane_contextual.png\" alt=\"News article: hurricane contextual\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/hurricane_contextual.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_hurricane_contextual",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4041,7 +4041,7 @@
       "SecondaryAttribute": "treatment_article_hurricane_no_mention",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}hurricane_no_mention.png\" alt=\"News article: hurricane no mention\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/hurricane_no_mention.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_hurricane_no_mention",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4068,7 +4068,7 @@
       "SecondaryAttribute": "treatment_article_wildfire_causal",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}wildfire_causal.png\" alt=\"News article: wildfire causal\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/wildfire_causal.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_wildfire_causal",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4095,7 +4095,7 @@
       "SecondaryAttribute": "treatment_article_wildfire_contextual",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}wildfire_contextual.png\" alt=\"News article: wildfire contextual\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/wildfire_contextual.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_wildfire_contextual",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4122,7 +4122,7 @@
       "SecondaryAttribute": "treatment_article_wildfire_no_mention",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}wildfire_no_mention.png\" alt=\"News article: wildfire no mention\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/wildfire_no_mention.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_wildfire_no_mention",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4149,7 +4149,7 @@
       "SecondaryAttribute": "treatment_article_drought_causal",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}drought_causal.png\" alt=\"News article: drought causal\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/drought_causal.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_drought_causal",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4176,7 +4176,7 @@
       "SecondaryAttribute": "treatment_article_drought_contextual",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}drought_contextual.png\" alt=\"News article: drought contextual\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/drought_contextual.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_drought_contextual",
         "QuestionType": "DB",
         "Selector": "TB",
@@ -4203,7 +4203,7 @@
       "SecondaryAttribute": "treatment_article_drought_no_mention",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"${e://Field/articleImageBaseUrl}drought_no_mention.png\" alt=\"News article: drought no mention\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
+        "QuestionText": "<div style=\"text-align:center; width:100%;\"><img src=\"https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/assets/treatment_article_images/drought_no_mention.png\" alt=\"\" role=\"presentation\" style=\"display:block; max-width:100%; width:760px; height:auto; margin:0 auto;\" /></div>",
         "DataExportTag": "treatment_article_drought_no_mention",
         "QuestionType": "DB",
         "Selector": "TB",
