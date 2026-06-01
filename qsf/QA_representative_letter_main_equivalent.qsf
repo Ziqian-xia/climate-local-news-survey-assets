@@ -2,7 +2,7 @@
   "SurveyEntry": {
     "SurveyID": "SV_emuSHbLSBz9dLka",
     "SurveyName": "QA - Representative letter main-equivalent flow",
-    "SurveyDescription": "Three-page QA flow for the production representative-letter path: state, ZIP, and the production letter page.",
+    "SurveyDescription": "Three-page QA flow for the production representative-letter path: state, ZIP, and the production letter page. Includes a QA-only diagnostic box.",
     "SurveyOwnerID": "UR_3xiVnO4BFMwxQJo",
     "SurveyBrandID": "stanforduniversity",
     "DivisionID": null,
@@ -718,6 +718,10 @@
             },
             {
               "Type": "Question",
+              "QuestionID": "QID76"
+            },
+            {
+              "Type": "Question",
               "QuestionID": "QID52"
             }
           ],
@@ -1151,6 +1155,26 @@
                 "FlowOnly": false,
                 "AnalyzeText": false,
                 "Value": ""
+              },
+              {
+                "Description": "zip_capture_status",
+                "Type": "Recipient",
+                "Field": "zip_capture_status",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "FlowOnly": false,
+                "AnalyzeText": false,
+                "Value": ""
+              },
+              {
+                "Description": "representative_lookup_debug",
+                "Type": "Recipient",
+                "Field": "representative_lookup_debug",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "FlowOnly": false,
+                "AnalyzeText": false,
+                "Value": ""
               }
             ]
           },
@@ -1216,7 +1240,7 @@
       "SurveyID": "SV_emuSHbLSBz9dLka",
       "Element": "QC",
       "PrimaryAttribute": "Survey Question Count",
-      "SecondaryAttribute": "74",
+      "SecondaryAttribute": "75",
       "TertiaryAttribute": null,
       "Payload": null
     },
@@ -1719,7 +1743,7 @@
         "NextChoiceId": 52,
         "NextAnswerId": 1,
         "QuestionID": "QID14",
-        "QuestionJS": "Qualtrics.SurveyEngine.addOnReady(function() {\n  var question = this;\n  var container = question.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  question.addOnPageSubmit(function() {\n    var state = '';\n    var select = container && container.querySelector ? container.querySelector('select') : null;\n    if (select && select.selectedIndex >= 0) {\n      var selected = select.options[select.selectedIndex];\n      state = selected ? (selected.text || selected.textContent || '') : '';\n    }\n    if (state) Qualtrics.SurveyEngine.setEmbeddedData('state', state);\n  });\n});"
+        "QuestionJS": "Qualtrics.SurveyEngine.addOnReady(function() {\n  var question = this;\n  var container = question.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  function saveState() {\n    var state = '';\n    var select = container && container.querySelector ? container.querySelector('select') : null;\n    if (select && select.selectedIndex >= 0) {\n      var selected = select.options[select.selectedIndex];\n      state = selected ? (selected.text || selected.textContent || '') : '';\n    }\n    if (state) Qualtrics.SurveyEngine.setEmbeddedData('state', state);\n  }\n  var select = container && container.querySelector ? container.querySelector('select') : null;\n  if (select) {\n    select.addEventListener('change', saveState);\n    select.addEventListener('blur', saveState);\n  }\n  question.addOnPageSubmit(saveState);\n});"
       }
     },
     {
@@ -1777,7 +1801,7 @@
         "NextChoiceId": 1,
         "NextAnswerId": 1,
         "QuestionID": "QID16",
-        "QuestionJS": "Qualtrics.SurveyEngine.addOnReady(function() {\n  var container = this.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  if (!container || !container.querySelectorAll) return;\n  var fields = container.querySelectorAll('textarea, input[type=\"text\"], input.InputText, .InputText');\n  Array.prototype.forEach.call(fields, function(field) {\n    ['copy', 'cut', 'paste', 'drop'].forEach(function(eventName) {\n      field.addEventListener(eventName, function(event) {\n        event.preventDefault();\n        return false;\n      });\n    });\n    field.setAttribute('autocomplete', 'off');\n    field.setAttribute('autocorrect', 'off');\n    field.setAttribute('autocapitalize', 'off');\n    field.setAttribute('spellcheck', 'false');\n  });\n});\n\nQualtrics.SurveyEngine.addOnReady(function() {\n  var q = this;\n  var container = q.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  var input = container ? container.querySelector('input[type=\"text\"], textarea, .InputText') : null;\n  q.addOnPageSubmit(function() {\n    if (input) Qualtrics.SurveyEngine.setEmbeddedData('zip', (input.value || '').replace(/\\D/g, '').substring(0, 5));\n  });\n});"
+        "QuestionJS": "Qualtrics.SurveyEngine.addOnReady(function() {\n  var container = this.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  if (!container || !container.querySelectorAll) return;\n  var fields = container.querySelectorAll('textarea, input[type=\"text\"], input.InputText, .InputText');\n  Array.prototype.forEach.call(fields, function(field) {\n    ['copy', 'cut', 'paste', 'drop'].forEach(function(eventName) {\n      field.addEventListener(eventName, function(event) {\n        event.preventDefault();\n        return false;\n      });\n    });\n    field.setAttribute('autocomplete', 'off');\n    field.setAttribute('autocorrect', 'off');\n    field.setAttribute('autocapitalize', 'off');\n    field.setAttribute('spellcheck', 'false');\n  });\n});\n\nQualtrics.SurveyEngine.addOnReady(function() {\n  var question = this;\n  var container = question.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  function findInput() {\n    return container && container.querySelector ? container.querySelector('input[type=\"text\"], textarea, input.InputText, .InputText') : null;\n  }\n  function saveZip() {\n    var input = findInput();\n    var zip = input ? (input.value || '').replace(/\\D/g, '').substring(0, 5) : '';\n    Qualtrics.SurveyEngine.setEmbeddedData('zip', zip);\n    Qualtrics.SurveyEngine.setEmbeddedData('zip_capture_status', zip ? 'captured_' + zip : 'empty');\n  }\n  function bindInput() {\n    var input = findInput();\n    if (!input || input.getAttribute('data-zip-capture-bound') === '1') return;\n    input.setAttribute('data-zip-capture-bound', '1');\n    ['input', 'change', 'keyup', 'blur'].forEach(function(eventName) {\n      input.addEventListener(eventName, saveZip);\n    });\n    saveZip();\n  }\n  bindInput();\n  window.setTimeout(bindInput, 100);\n  window.setTimeout(bindInput, 350);\n  question.addOnPageSubmit(saveZip);\n});"
       }
     },
     {
@@ -3468,7 +3492,7 @@
       "SecondaryAttribute": "representative_letter",
       "TertiaryAttribute": null,
       "Payload": {
-        "QuestionText": "<div id=\"representative-match-display\" style=\"font-weight:600; margin-bottom:10px;\"></div><p>You may edit the letter below before submitting it.</p>",
+        "QuestionText": "<div id=\"representative-match-display\" style=\"font-weight:600; margin-bottom:10px;\">Representative: matching from ZIP code...</div><p>You may edit the letter below before submitting it.</p>",
         "DataExportTag": "representative_letter",
         "QuestionType": "TE",
         "Selector": "ML",
@@ -3487,7 +3511,7 @@
         "NextChoiceId": 1,
         "NextAnswerId": 1,
         "QuestionID": "QID52",
-        "QuestionJS": "Qualtrics.SurveyEngine.addOnReady(function() {\n  var container = this.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  if (!container || !container.querySelectorAll) return;\n  var fields = container.querySelectorAll('textarea, input[type=\"text\"], input.InputText, .InputText');\n  Array.prototype.forEach.call(fields, function(field) {\n    ['copy', 'cut', 'paste', 'drop'].forEach(function(eventName) {\n      field.addEventListener(eventName, function(event) {\n        event.preventDefault();\n        return false;\n      });\n    });\n    field.setAttribute('autocomplete', 'off');\n    field.setAttribute('autocorrect', 'off');\n    field.setAttribute('autocapitalize', 'off');\n    field.setAttribute('spellcheck', 'false');\n  });\n});\n\nQualtrics.SurveyEngine.addOnReady(function() {\n  var container = this.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  var lookupUrl = 'https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/data/representative_lookup_by_zip.json';\n  var zip = Qualtrics.SurveyEngine.getEmbeddedData('zip') || '';\n  var selectedState = Qualtrics.SurveyEngine.getEmbeddedData('state') || Qualtrics.SurveyEngine.getEmbeddedData('representative_state') || '';\n  var lastAutofilledLetter = '';\n\n  function setStatus(value) {\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_letter_prefill_status', value || '');\n  }\n  function findBox() {\n    if (!container || !container.querySelector) return null;\n    return container.querySelector('textarea, input[type=text], input[type=\"text\"], input.InputText, .InputText');\n  }\n  function letterText(state) {\n    return 'I am writing to express my concern about recent cuts to federal climate change preparedness programs. Our community depends on strong disaster preparedness support to protect against climate-related events that may affect ' + (state || selectedState || 'your state') + '.\\n\\nState and local governments lack the resources to handle catastrophic disasters alone. I urge you to advocate for restoring and strengthening federal support for climate disaster preparedness to protect vulnerable populations in our community.\\n\\nSincerely,\\n[Your name or initial]';\n  }\n  function fillLetter(state) {\n    var box = findBox();\n    if (!box) return false;\n    var nextLetter = letterText(state);\n    box.style.minHeight = '260px';\n    if (!box.value || box.value === lastAutofilledLetter) {\n      box.value = nextLetter;\n      lastAutofilledLetter = nextLetter;\n    }\n    try { box.dispatchEvent(new Event('input', { bubbles: true })); } catch(e) {}\n    try { box.dispatchEvent(new Event('change', { bubbles: true })); } catch(e) {}\n    setStatus('textarea_filled');\n    return true;\n  }\n  function retryFill(state) {\n    [0, 50, 150, 350, 800].forEach(function(delay) {\n      window.setTimeout(function() {\n        if (!fillLetter(state) && delay === 800) setStatus('textarea_not_found');\n      }, delay);\n    });\n  }\n  function normZip(value) {\n    return (value || '').replace(/\\D/g, '').substring(0, 5);\n  }\n  function normalizeRep(row) {\n    return {\n      representative_name: row[0] || '',\n      state: row[1] || selectedState || '',\n      state_abbr: row[2] || '',\n      congressional_district: row[3] || '',\n      party: row[4] || '',\n      bioguide_id: row[5] || ''\n    };\n  }\n  function labelFor(rep) {\n    var district = rep.congressional_district || '';\n    var state = rep.state_abbr || rep.state || '';\n    var suffix = state && district ? ' (' + state + '-' + district + ')' : '';\n    return (rep.representative_name || 'Representative') + suffix;\n  }\n  function setDisplay(text) {\n    var display = container && container.querySelector ? container.querySelector('#representative-match-display') : document.getElementById('representative-match-display');\n    if (display) display.textContent = text || '';\n  }\n  function setEmbedded(rep, status, count) {\n    rep = rep || {};\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_name', rep.representative_name || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_state', rep.state || selectedState || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_state_abbr', rep.state_abbr || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_district', rep.congressional_district || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_selected', rep.representative_name || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_lookup_status', status || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_match_count', String(count || 0));\n    if (rep.representative_name) setDisplay('Representative: ' + labelFor(rep));\n  }\n\n  setDisplay('');\n  retryFill(selectedState);\n\n  if (!window.fetch) {\n    setEmbedded({}, 'fetch_unavailable', 0);\n    return;\n  }\n  fetch(lookupUrl).then(function(response) {\n    if (!response.ok) throw new Error('HTTP ' + response.status);\n    return response.json();\n  }).then(function(lookup) {\n    var matches = (lookup[normZip(zip)] || []).map(normalizeRep).slice(0, 6);\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_options', matches.map(labelFor).join(' | '));\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_ambiguous', matches.length > 1 ? '1' : '0');\n    if (matches.length) {\n      var status = matches.length > 1 ? 'multiple_match_default_first' : 'single_match';\n      setEmbedded(matches[0], status, matches.length);\n      retryFill(matches[0].state || selectedState);\n    } else {\n      setEmbedded({}, zip ? 'zip_not_found_in_lookup' : 'zip_embedded_data_missing', 0);\n      setDisplay('');\n      retryFill(selectedState);\n    }\n  }).catch(function() {\n    setEmbedded({}, 'lookup_fetch_failed', 0);\n    setDisplay('');\n    retryFill(selectedState);\n  });\n});"
+        "QuestionJS": "Qualtrics.SurveyEngine.addOnReady(function() {\n  var container = this.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  if (!container || !container.querySelectorAll) return;\n  var fields = container.querySelectorAll('textarea, input[type=\"text\"], input.InputText, .InputText');\n  Array.prototype.forEach.call(fields, function(field) {\n    ['copy', 'cut', 'paste', 'drop'].forEach(function(eventName) {\n      field.addEventListener(eventName, function(event) {\n        event.preventDefault();\n        return false;\n      });\n    });\n    field.setAttribute('autocomplete', 'off');\n    field.setAttribute('autocorrect', 'off');\n    field.setAttribute('autocapitalize', 'off');\n    field.setAttribute('spellcheck', 'false');\n  });\n});\n\nQualtrics.SurveyEngine.addOnReady(function() {\n  var container = this.getQuestionContainer();\n  if (container && container.jquery) container = container[0];\n  var lookupUrl = 'https://raw.githubusercontent.com/Ziqian-xia/climate-local-news-survey-assets/main/data/representative_lookup_by_zip.json';\n  var pipedZip = '${q://QID16/ChoiceTextEntryValue}';\n  var pipedState = '${q://QID14/ChoiceGroup/SelectedChoices}';\n  if (!pipedZip || pipedZip.indexOf('${q://') === 0) pipedZip = '';\n  if (!pipedState || pipedState.indexOf('${q://') === 0) pipedState = '';\n  var zip = Qualtrics.SurveyEngine.getEmbeddedData('zip') || pipedZip || '';\n  var selectedState = Qualtrics.SurveyEngine.getEmbeddedData('state') || pipedState || Qualtrics.SurveyEngine.getEmbeddedData('representative_state') || '';\n  var lastAutofilledLetter = '';\n\n  function normZip(value) {\n    return (value || '').replace(/\\D/g, '').substring(0, 5);\n  }\n  function setQaDiagnostic(value) {\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_lookup_debug', value || '');\n    var node = document.getElementById('qa-representative-lookup-status');\n    if (node) node.textContent = 'QA diagnostic: ' + (value || '');\n  }\n  function setPrefillStatus(value) {\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_letter_prefill_status', value || '');\n  }\n  function findBox() {\n    if (!container || !container.querySelector) return null;\n    return container.querySelector('textarea, input[type=text], input[type=\"text\"], input.InputText, .InputText');\n  }\n  function letterText(state) {\n    return 'I am writing to express my concern about recent cuts to federal climate change preparedness programs. Our community depends on strong disaster preparedness support to protect against climate-related events that may affect ' + (state || selectedState || 'your state') + '.\\n\\nState and local governments lack the resources to handle catastrophic disasters alone. I urge you to advocate for restoring and strengthening federal support for climate disaster preparedness to protect vulnerable populations in our community.\\n\\nSincerely,\\n[Your name or initial]';\n  }\n  function fillLetter(state) {\n    var box = findBox();\n    if (!box) return false;\n    var nextLetter = letterText(state);\n    box.style.minHeight = '260px';\n    if (!box.value || box.value === lastAutofilledLetter) {\n      box.value = nextLetter;\n      lastAutofilledLetter = nextLetter;\n    }\n    try { box.dispatchEvent(new Event('input', { bubbles: true })); } catch(e) {}\n    try { box.dispatchEvent(new Event('change', { bubbles: true })); } catch(e) {}\n    setPrefillStatus('textarea_filled');\n    return true;\n  }\n  function retryFill(state) {\n    [0, 50, 150, 350, 800].forEach(function(delay) {\n      window.setTimeout(function() {\n        if (!fillLetter(state) && delay === 800) setPrefillStatus('textarea_not_found');\n      }, delay);\n    });\n  }\n  function normalizeRep(row) {\n    return {\n      representative_name: row[0] || '',\n      state: row[1] || selectedState || '',\n      state_abbr: row[2] || '',\n      congressional_district: row[3] || '',\n      party: row[4] || '',\n      bioguide_id: row[5] || ''\n    };\n  }\n  function labelFor(rep) {\n    var district = rep.congressional_district || '';\n    var state = rep.state_abbr || rep.state || '';\n    var suffix = state && district ? ' (' + state + '-' + district + ')' : '';\n    return (rep.representative_name || 'Representative') + suffix;\n  }\n  function setDisplay(text) {\n    var display = container && container.querySelector ? container.querySelector('#representative-match-display') : document.getElementById('representative-match-display');\n    if (display) display.textContent = text || '';\n  }\n  function setEmbedded(rep, status, count) {\n    rep = rep || {};\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_name', rep.representative_name || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_state', rep.state || selectedState || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_state_abbr', rep.state_abbr || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_district', rep.congressional_district || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_selected', rep.representative_name || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_lookup_status', status || '');\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_match_count', String(count || 0));\n  }\n\n  zip = normZip(zip);\n  setDisplay('Representative: matching from ZIP code...');\n  setQaDiagnostic('letter page loaded | ZIP=' + (zip || '[missing]'));\n  retryFill(selectedState);\n\n  if (!window.fetch) {\n    setEmbedded({}, 'fetch_unavailable', 0);\n    setDisplay('Representative: lookup temporarily unavailable.');\n    setQaDiagnostic('ZIP=' + (zip || '[missing]') + ' | lookup=fetch_unavailable');\n    return;\n  }\n  fetch(lookupUrl).then(function(response) {\n    if (!response.ok) throw new Error('HTTP ' + response.status);\n    return response.json();\n  }).then(function(lookup) {\n    var matches = (lookup[zip] || []).map(normalizeRep).slice(0, 6);\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_options', matches.map(labelFor).join(' | '));\n    Qualtrics.SurveyEngine.setEmbeddedData('representative_ambiguous', matches.length > 1 ? '1' : '0');\n    if (matches.length) {\n      var status = matches.length > 1 ? 'multiple_match_default_first' : 'single_match';\n      var rep = matches[0];\n      setEmbedded(rep, status, matches.length);\n      setDisplay('Representative: ' + labelFor(rep));\n      setQaDiagnostic('ZIP=' + zip + ' | lookup=' + status + ' | representative=' + labelFor(rep));\n      retryFill(rep.state || selectedState);\n    } else {\n      var missingStatus = zip ? 'zip_not_found_in_lookup' : 'zip_embedded_data_missing';\n      setEmbedded({}, missingStatus, 0);\n      setDisplay(zip ? 'Representative: no match found for ZIP code.' : 'Representative: ZIP code was not available for matching.');\n      setQaDiagnostic('ZIP=' + (zip || '[missing]') + ' | lookup=' + missingStatus);\n      retryFill(selectedState);\n    }\n  }).catch(function(error) {\n    setEmbedded({}, 'lookup_fetch_failed', 0);\n    setDisplay('Representative: lookup temporarily unavailable.');\n    setQaDiagnostic('ZIP=' + (zip || '[missing]') + ' | lookup=lookup_fetch_failed | error=' + (error && error.message ? error.message : 'unknown'));\n    retryFill(selectedState);\n  });\n});"
       }
     },
     {
@@ -4995,6 +5019,34 @@
         "NextChoiceId": 3,
         "NextAnswerId": 7,
         "QuestionID": "QID75"
+      }
+    },
+    {
+      "SurveyID": "SV_emuSHbLSBz9dLka",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID76",
+      "SecondaryAttribute": "qa_representative_lookup_status",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "<div id=\"qa-representative-lookup-status\" style=\"border:1px solid #ccc; background:#fafafa; padding:10px; margin:8px 0 14px;\"><strong>QA diagnostic:</strong> waiting for letter-page JavaScript...</div>",
+        "DataExportTag": "qa_representative_lookup_status",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "qa_representative_lookup_status",
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "NextChoiceId": 1,
+        "NextAnswerId": 1,
+        "QuestionID": "QID76"
       }
     }
   ]
